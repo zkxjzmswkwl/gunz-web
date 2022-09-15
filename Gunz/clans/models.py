@@ -27,6 +27,9 @@ class Clan(models.Model):
     lastdayranking   = models.IntegerField(db_column='LastDayRanking')  # Field name made lowercase.
     lastmonthranking = models.IntegerField(db_column='LastMonthRanking')  # Field name made lowercase.
 
+    def __str__(self):
+        return f"{self.clid}:{self.name}"
+
     class Meta:
         managed  = False
         db_table = 'Clan'
