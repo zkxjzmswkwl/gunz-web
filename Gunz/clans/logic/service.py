@@ -1,7 +1,7 @@
 from clans.models import Clan
 
 def reset_clan(*, clan_id: int):
-    clan = Clan.objects.get(id=clan_id)
+    clan = Clan.objects.get(clid=clan_id)
     clan.wins        = 0
     clan.losses      = 0
     clan.totalpoint  = 0

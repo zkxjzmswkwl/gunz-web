@@ -4,7 +4,7 @@ from rest_framework.response import Response
 
 from .serializers import ClanSerializer, ClanMemberSerializer
 from clans.logic.selectors import list_clans_by_wins, list_clans_by_points, list_clans_by_total_points, get_members_for
-from clans.logic.service import admin_abuse
+from clans.logic.service import admin_abuse, reset_clan
 
 
 class ClanList(APIView):
@@ -29,7 +29,18 @@ class ClanMemberList(APIView):
     def get(self, request, clan_id):
         ret = ClanMemberSerializer(get_members_for(clan_id=clan_id), many=True)
         return Response(ret.data)
-        
+
+
+class ClanReset(APIView):
+    class InputSerializer(serializers.Serializer):
+        clan_id = serializers.IntegerField()
+
+    def post(self, request):
+        serializer = self.InputSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        reset_clan(**serializer.validated_data)
+        return Response({"crocodilo": "explotando"})
 
 class AdminAbuse(APIView):
     class InputSerializer(serializers.Serializer):
