@@ -4,13 +4,13 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 
-from .serializers import AccountSerializer, CharacterSerializer
+from .serializers import AccountSerializer, CharacterSerializer, GameRoomSerializer
 from .models import Account, Character
 
 from members.logic.service import max_out_account
-from members.logic.selectors import list_accounts, list_characters
+from members.logic.selectors import list_accounts, list_characters, list_stages
 
-
+# TODO: Authentication mixins
 
 class AccountList(APIView):
     def get(self, request):
@@ -39,3 +39,9 @@ class MaxOutAccount(APIView):
 
         max_out_account(**serializer.validated_data)
         return Response({"suc": "noice"})
+
+
+class GameRoomList(APIView):
+    def get(self, request):
+        ret = GameRoomSerializer(list_stages(), many=True).data
+        return Response(ret)

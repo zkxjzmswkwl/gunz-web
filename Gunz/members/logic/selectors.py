@@ -1,4 +1,4 @@
-from members.models import Account, Character
+from members.models import Account, Character, Gamerooms
 from typing import List
 
 
@@ -20,4 +20,5 @@ def list_accounts() -> List[Account]:
 def list_characters() -> List[Character]:
     return Character.objects.all().order_by('cid')
 
-
+def list_stages() -> List[Gamerooms]:
+    return Gamerooms.objects.all()

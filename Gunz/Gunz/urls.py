@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from members.views import MaxOutAccount, AccountList, CharacterList 
+from members.views import MaxOutAccount, AccountList, CharacterList, GameRoomList
 from clans.views import ClanList, ClanListByPoints, ClanListByTotalPoints, ClanMemberList, AdminAbuse, ClanReset
 
 # r = routers.DefaultRouter()
@@ -18,6 +18,8 @@ urlpatterns = [
     path("gunz/clans/list/totalpoints/",      ClanListByTotalPoints.as_view(), name="list"),
     path("gunz/clans/list/points/",           ClanListByPoints.as_view(),      name="list"),
     path("gunz/clans/<int:clan_id>/members/", ClanMemberList.as_view(),        name="list"),
+    path("gunz/stages/list",                  GameRoomList.as_view(),          name="list"),
+
 
     # Create
     path("gunz/maxoutaccount/",     MaxOutAccount.as_view(), name='create'),

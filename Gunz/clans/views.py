@@ -42,6 +42,7 @@ class ClanReset(APIView):
         reset_clan(**serializer.validated_data)
         return Response({"crocodilo": "explotando"})
 
+
 class AdminAbuse(APIView):
     class InputSerializer(serializers.Serializer):
         clan_id = serializers.IntegerField()

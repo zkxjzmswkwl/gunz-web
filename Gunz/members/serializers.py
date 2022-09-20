@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from .models import Account, Character, Characteritem, Charactermakinglog, Friend, Login
+from .models import Account, Character, Characteritem, Charactermakinglog, Friend, Login, Gamerooms
 
 
 class AccountSerializer(ModelSerializer):
@@ -37,4 +37,9 @@ class LoginSerializer(ModelSerializer):
         model = Login
         fields = "__all__"
 
+
+class GameRoomSerializer(ModelSerializer):
+    class Meta:
+        model = Gamerooms
+        fields = "__all__"
 

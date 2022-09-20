@@ -72,7 +72,6 @@ class Charactermakinglog(models.Model):
         db_table = 'CharacterMakingLog'
 
 
-
 class Friend(models.Model):
     cid        = models.IntegerField(db_column='CID')  # Field name made lowercase.
     friendcid  = models.IntegerField(db_column='FriendCID')  # Field name made lowercase.
@@ -95,4 +94,21 @@ class Login(models.Model):
     class Meta:
         managed  = False
         db_table = 'Login'
+
+
+class Gamerooms(models.Model):
+    id          = models.AutoField(db_column='id', primary_key=True)  # Field name made lowercase.
+    title       = models.TextField(db_column='Title', blank=True, null=True)  # Field name made lowercase.
+    creator     = models.TextField(db_column='Creator', blank=False, null=False)  # Field name made lowercase.
+    map         = models.TextField(db_column='Map')  # Field name made lowercase.
+    mode        = models.TextField(db_column='Mode')  # Field name made lowercase.
+    playercount = models.IntegerField(db_column='PlayerCount')  # Field name made lowercase.
+    
+    def __str__(self):
+        return f"{self.creator} created stage \"{self.title}\" on map {self.map}"
+
+    class Meta:
+        managed  = False
+        db_table = 'GameRooms'
+
 
