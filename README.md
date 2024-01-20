@@ -10,9 +10,10 @@
 ## Getting started
 
 1. Yoink this repository to your local disk
-2. cd into the root folder of the project
-3. Install the required Python modules using pip
-4. Run the backend server.
+2. Make sure that your Refined server folder is located at `C:/Users/YourUsername/Documents/rfgunz/Server`.
+3. cd into the root folder of the project
+4. Install the required Python modules using pip
+5. Run the backend server.
 
 Or, in other words, copy and paste this:
 
