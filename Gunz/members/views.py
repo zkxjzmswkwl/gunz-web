@@ -12,10 +12,12 @@ from members.logic.selectors import list_accounts, list_characters, list_stages
 
 # TODO: Authentication mixins
 
+
 class AccountList(APIView):
     def get(self, request):
         ret = AccountSerializer(instance=list_accounts(), many=True)
         return Response(ret.data)
+
 
 class CharacterList(APIView):
     def get(self, request):
@@ -24,7 +26,7 @@ class CharacterList(APIView):
 
 
 class CharacterViewSet(ModelViewSet):
-    queryset         = Character.objects.all()
+    queryset = Character.objects.all()
     serializer_class = CharacterSerializer
 
 
