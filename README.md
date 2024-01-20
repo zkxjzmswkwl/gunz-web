@@ -20,5 +20,6 @@ Or, in other words, copy and paste this:
 git clone https://github.com/zkxjzmswkwl/gunz-web
 cd gunz-web
 pip install -r requirements.txt
+cd Gunz
 python manage.py runserver
 ```
